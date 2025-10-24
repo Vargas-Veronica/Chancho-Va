@@ -50,7 +50,10 @@ app.use('/api/products', apiProductsRouter); */
 
 
 
-app.listen(port, () => {
+/*app.listen(port, () => {
     console.log(`servidor levantado en http://localhost:${port}`);
     }
-);
+);*/
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor levantado en puerto ${port}`);
+});
