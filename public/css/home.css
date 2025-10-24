@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap'); 
+@import url(header.css);
+@import url(footer.css);
+@import url(banner.css);
+
+
+:root {
+    /* Variables de colores */
+    --rojo: #FF5656;
+    --azul: #6A7EFC;
+    --negro: #494953;
+    --gris: #edf2f6;
+    
+      /* Fuentes */
+      --fuente:'Source Sans Pro', sans-serif;  /* Tamaños tipográficos */
+      --parrafos: 12px;
+      --titulos: 24px;
+      --precio: 18px;
+      --descuento: 16px;
+      --descripcion: 16px;
+}
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: var(--fuente);
+}
+
+main.homeMain {
+    width: 100%;
+}
+
+main.homeMain div.contenedorHome {
+    width: 100%;
+}
+
+main.homeMain div.contenedorHome  a {
+    text-decoration: none;
+    color: black;
+}
+
+main.homeMain div.contenedorHome a h2.nombreSubCategoria {
+    text-align: center;
+    padding: 5px;  
+    border-top: black solid 2px 0px;
+    width: 100%;
+    font-size: 44px;
+    background: linear-gradient(360deg, #494953, #FF5656, #6A7EFC);
+    margin: 25px 0px; 
+    animation-name: colores;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+main.homeMain div.contenedorHome section.homeMenuTematico {
+    display: flex;    
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+}
+
+main.homeMain div.contenedorHome section.homeMenuTematico article.contenedorCategoria {
+    width: 90%;
+}
+
+main.homeMain div.contenedorHome section.homeMenuTematico article.contenedorCategoria img.homeCategoria {
+    width: 100%;
+}
+
+main.homeMain div.contenedorHome section.homeMenuTematico article.contenedorCategoria img.homeCategoria:hover {
+    box-shadow: 0 0 5px grey;
+    border-radius: 20px;
+}
+
+main.homeMain div.contenedorHome section.homeProductos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    white-space: nowrap;  
+   
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos {
+    width: 290px;
+    height: 400px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 5px 5px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+   
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaImagen {
+    width: 100%;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaImagen a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaImagen a img.imagenJuego {
+    width: 250px;
+    height: 250px;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaDescripcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    width: 100%;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaDescripcion h3.nombreJuego {
+    margin: 3px 0;
+    font-size: 18px;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaDescripcion  p.juegoPrecio {
+    font-size: 22px;
+    margin: 4px 0;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaDescripcion a {
+    margin: 10px 0;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaDescripcion a button.btnAgregarAlCarrito {
+    width: 200px;
+    height: 35px;
+    border: none;
+    box-shadow: 0 0 5px;
+    border-radius: 15px;
+    font-size: 15px;
+    padding-bottom: 5px;
+    background: linear-gradient(93deg, #6a7efc, #ff5656);
+    font-weight: bold;
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+main.homeMain div.contenedorHome section.homeProductos div.homeContainerProductos article.homeTarjetaProducto div.homeTarjetaDescripcion a button.btnAgregarAlCarrito:hover {
+    color: white;
+    background: linear-gradient(93deg,#ff5656, #6a7efc);
+}
+
+/* BOTON WHATSAPP*/
+
+.container-btn-wp{
+    background-color: #deeadd;
+    border: 1px solid #fff;
+    position: fixed;
+    z-index: 999;
+    border-radius:50%;
+    bottom: 10px;
+    padding: 15px;
+    transition: ease 0.3s;
+    animation: efecto 1.2s infinite;
+}
+
+.container-btn-wp:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.btn-wp{
+    width: 30px !important;
+    transition: ease 1s;
+    
+}
+
+/* fIN MAIN */
+
+/* TABLET */
+ @media (min-width: 767px) {
+    main.homeMain div.contenedorHome section.homeMenuTematico {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+    main.homeMain div.contenedorHome section.homeMenuTematico article.contenedorCategoria {
+        margin: 15px;
+    }
+    
+    main.homeMain div.contenedorHome section.homeMenuTematico article.contenedorCategoria img.homeCategoria {
+        height: 370px;
+    }
+    
+    .container-btn-wp {
+        right: 10px;
+        padding: 10px;
+    }
+
+    .btn-wp {
+        width: 80px;
+    }
+}
+/* DESKTOP*/
+ @media (min-width: 1039px) {
+    main.homeMain div.contenedorHome section.homeMenuTematico {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    main.homeMain div.contenedorHome section.homeMenuTematico article.contenedorCategoria {
+        margin: 15px;
+    }
+
+    main.homeMain div.contenedorHome section.homeMenuTematico article.contenedorCategoria img.homeCategoria {
+        height: 370px;
+    }
+
+    main.homeMain div.contenedorHome section.homeProductos {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
+
+@keyframes efecto{
+    0%{
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.85);
+    }
+    100%{
+        box-shadow: 0 0 0 25px rgba(0, 0, 0, 0);
+    }
+} 
+
+@keyframes colores {
+    0%{color: #494953;}
+    25%{color: #edf2f6;}
+    50%{color: #494953;}
+    75%{color: #edf2f6;}
+    100%{color: #494953;}
+}

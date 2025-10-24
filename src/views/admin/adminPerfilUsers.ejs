@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/adminPerfilUsers.css">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <title>Chancho va! </title>
+         <!-- FontAwesome-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" /> 
+    </head>
+<body>
+    <%- include('../partials/header')  %>
+    <main class="userPerfilContainer">
+        <%- include("../partials/menuAdmin")%>
+        <div class="contenedorDatosUser">
+            <div class="usuariosRegistrados">
+                <div class="nombre">
+                    <h1>Usuarios Registrados</h1>
+                </div>
+                <div class="buscador">
+                    <input class="input" type="search" name="search" placeholder="¿Qué usuario buscas?">
+                </div>
+                <div class="contenedorDeTargetas">
+                    <% users.forEach(user => { %>
+                        <a href="/admin/userEdit/<%= user.id %>">
+                            <div class="targetaUsuario">
+                                <figure class="cajaImagen">
+                                    <img class="foto2" src="/images/perfilUser/<%= user.avatar %>" alt="Imagen De Perfil">
+                                </figure>
+                                <article class="datos">
+                                    <h2 class="nombre"><%= user.last_name %>, <%= user.first_name %></h2>
+                                    <p class="label">Email</p>
+                                    <p class="dato"><%= user.email %></p>
+                                    <p class="label">Nombre</p>
+                                    <p class="dato"><%= user.first_name %></p>
+                                    <p class="label">Apellido</p>
+                                    <p class="dato"><%= user.last_name %></p>
+                                    <!-- <p class="dato">Contraseña</p> -->
+                                </article>
+                            </div>
+                        </a>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('../partials/footer')  %>
+    <script src="/js/efectosPanelAdmin/usersRegister.js"></script>
+    <script src="/js/efecto.js"></script>
+</body>
+</html>

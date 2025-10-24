@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url(header.css);
+@import url(footer.css);
+
+:root {
+  /* Variables colores */
+  --rojo: #FF5656;
+  --azul: #6A7EFC;
+  --negro: #494953;
+  --gris: #EDF2F6;
+
+  /* Fuente */
+
+  --fuente: 'Source Sans Pro', sans-serif;
+
+  /* Tamaños tipográficos */
+  --parrafos: 12px;
+  --titulos: 24px;
+  --precio: 18px;
+  --descuento: 16px;
+  --descripcion: 16px;
+}
+
+
+
+/* START PAGE CONTENT */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--fuente);
+}
+
+section.product-detail {
+  font-family: 'source sans pro', sans-serif;
+  min-height: 100vh;
+  background: url(/images/fondo.jpg) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem 0 3rem;
+}
+
+h1.title {
+  margin-top: 0.2rem;
+}
+
+section hr {
+margin-bottom: 0.4rem;
+width: 100%;
+height: 3px;
+background-color: black;
+}
+
+section section img.product {
+  max-width: 12rem;
+  max-height: 12rem;
+}
+
+section section div.shopping-cart {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  background-color: rgb(222, 222, 222);
+  margin-bottom: 0.4rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav div.methods {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  align-items: center;
+}
+
+section section div input.quantity {
+  height: 1.4rem;
+  width: 3rem;
+}
+
+/* section section div.quantity-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button#decrementar, span#cantidad, button#incrementar {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(222, 222, 222);
+  color: black;
+  width: 2rem;
+  height: 2rem;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+} */
+
+section div p.delete {
+  text-decoration: underline;
+  text-transform: capitalize;
+  text-transform: var(--negro);
+  text-transform: var(--fuente);
+  cursor: pointer;
+}
+
+section div p.delete:hover {
+  color: var(--rojo);
+}
+
+section div input.quantity {
+  cursor: pointer;
+}
+
+div.order {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border: 2px solid white;
+  border-radius: 0.8rem;
+  box-shadow: 5px 5px 12px rgb(40,40,40);
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 2.4rem;
+  margin: 0.8rem 2rem;
+}
+
+div.pay {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.primary-button{
+  background: var(--rojo);
+  border: 2px solid white;
+  border-radius: 0.8rem;
+  box-shadow: 5px 5px 12px rgb(40,40,40);
+  padding: 0.5rem 6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 2.4rem;
+  margin: 0.8rem 2rem;
+  transition: all 1s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.primary-button:hover{
+  background: linear-gradient(93deg,#ff5656, #6a7efc);
+  border: 2px solid var(--rojo);
+  color: white;
+}
+
+/* MEDIAQUERIES */
+
+@media screen and (max-width: 475px) {
+
+  div.shopping-cart {
+    flex-direction: column;
+  }
+
+  div.order {
+    align-items: center;
+    height: 3.4rem;
+    margin: 0.8rem 2rem;
+  }
+
+  .delete {
+    margin-bottom: 0.4rem;
+  }
+
+  .primary-button{
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* END MEDIAQUERIES */
+/* END PAGE CONTENT */

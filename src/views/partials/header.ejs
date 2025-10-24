@@ -1,0 +1,165 @@
+<header class="contenedor">
+    <div class="contenedorHeaderMobileTablet">
+        <div class="menu">
+            <div class="barra">
+                <span class="linea1"></span>
+                <span class="linea2"></span>
+                <span class="linea3"></span>
+             </div>
+        </div>
+        <div class="logo">
+            <a href="/"><img src="/images/sinfondo.png" alt="logo"></a>
+            <h3 class="oculto">Juegos de mesa</h3>
+        </div>
+        <div class="buscador">
+            <form action="/search" method="GET">
+                <div class="barraBuscadora">
+                    <input class="busqueda" type="search" id="search-bar" name="search" placeholder="¿A qué queres jugar?" >
+                    <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+                <div id="texto">
+                    <i id="voice-button" class="fa-solid fa-microphone"></i>
+                </div>
+            </form>
+        </div>
+        <div class="iconoBuscador">
+                <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        </div>
+        <div class="contenedorOculto">
+            <div class="perfilCarrito">
+                <div class="user">
+                    <% if (typeof session.userLogged != "undefined") { %>
+                        <span class="sessionMobile"></span>
+                        <div class="sesionIniciada">
+                            <i class="fa-regular fa-user"></i>
+                            <h5><a href="">Perfil</a></h5>
+                            <div class="flecha">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="menuUser">
+                            <a href="/users/profile">Mis datos</a>
+                            <a href="/users/logout">Cerrar sesión</a>
+                            <% if (session.userLogged.rol === "admin") { %>
+                                <a href="/admin/adminPerfil">ADMIN</a>
+                            <% } %>
+                        </div>
+                    <% } else {%>
+                        <div class="iniciarSesion">
+                            <i class="fa-regular fa-user"></i>
+                            <h5><a href="/users/login">Ingresa</a></h5>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="carrito">
+                    <i class="fa-brands fa-opencart"></i>
+                    <h5><a href="/products/Carrito">Carrito</a></h5>
+                </div>
+            </div>
+            <div class="pagos">
+                <h5><a href="/products/productsList">Productos</a></h5>
+            </div>
+            <div class="ofertas">
+                <h5><a href="/products/ofertas">Ofertas</a></h5>
+            </div>
+            <div class="categorias">
+                <h5 class="palabra">Categorías</h5>
+                <div class="flecha">
+                    <i id="fechaCat" class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+            <div class="categoriaProductos">
+                <h5><a href="/products/familiares">Familiares</a></h5>
+                <h5><a href="/products/estrategia">Estrategia</a></h5>
+                <h5><a href="/products/previa">Previa</a></h5>
+            </div>
+        </div>
+    </div>
+    <div class="contenedorHeaderDesktop">
+        <div class="logo">
+            <a href="/"><img src="/images/sinfondo.png" alt="logo"></a>
+            <h3 class="oculto">Juegos de mesa</h3>
+        </div>
+        <!-- <div class="buscador">
+            <div class="barraBuscadora">
+                <input class="busqueda" type="search" placeholder="¿A qué queres jugar?" >
+             
+            </div> -->
+            <div class="contenedorBuscadorMenu">
+            <div class="buscador">
+               <!--  <form action="/search" method="GET">
+                    <div class="barraBuscadora">
+                        <input class="busqueda" type="search" id="search" name="search" placeholder="¿A qué queres jugar?" >
+                    </div>
+                    <div class="botonBuscador">
+                        <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+                    </div>
+                </form> -->
+                <!-- <div id="texto" class="botonMicro">
+                    <i id="voice-button" class="fa-solid fa-microphone"></i>
+                </div> -->
+                <form action="/search" method="GET">
+                  <div class="barraBuscadora">
+                    <div class="input-wrapper">
+                      <input class="busqueda" type="search" id="search" name="search" placeholder="¿A qué queres jugar?">
+                      <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </form>                  
+            </div>
+        <div class="buscador">
+            
+            <div class="subMenu">
+                <% if (typeof session.userLogged != "undefined" && session.userLogged.rol == 1) { %>
+                <div class="pagos">
+                    <h5><a href="/admin/products">Productos</a></h5>
+                </div>
+                <div class="ofertas">
+                    <h5><a href="/admin/createProduct">Vender Producto</a></h5>
+                </div>
+                <% } %>
+                <div class="categorias2">
+                    <h5 class="palabra">Categorías</h5>
+                    <div class="flecha">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <div class="categoriaProductos2">
+                        <h5><a href="/products/familiares">Familiares</a></h5>
+                        <h5><a href="/products/estrategia">Estrategia</a></h5>
+                        <h5><a href="/products/previa">Previa</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="userCarrito">
+            <div class="user">
+                <% if (typeof session.userLogged != "undefined") { %>
+                    <span class="session"></span>
+                    <i class="fa-regular fa-user"></i>
+                    <h5><a href="/users/login">Perfil</a></h5>
+                    <div class="menu-user-desktop">
+                        <a href="/users/profile">Mis datos</a>
+                        <a href="/users/logout">Cerrar sesión</a>
+                        <% if (session.userLogged.rol === 1) { %>
+                            <a href="/admin/adminPerfil">ADMIN</a>
+                        <% } %>
+                    </div>
+                    <% } else {%>
+                        <a href="/users/login">
+                            <i class="fa-regular fa-user"></i>
+                            <h5>Ingresa</h5>
+                        </a>
+                    <% } %>
+            </div>
+            <div class="carrito">
+                <a href="/products/Carrito">
+                    <i class="fa-brands fa-opencart"></i>
+                    <h5>Carrito</h5>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</header>

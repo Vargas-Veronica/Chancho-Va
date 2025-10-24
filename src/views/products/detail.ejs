@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %> 
+<body>
+	<!-- Header -->
+	<%- include('../partials/header') %>
+	<!-- /Header -->
+    <main class="contenedorDetalles">
+		<div class="contenedorTarjetaDetalle">
+			<div class="nombreProductoDetalle">
+				<h2 class="nombreProducto"> <%= product.name %> </h2>
+			</div>
+			<article class="detallesProducto">
+				<div class="imagenDescripcion">
+					<img src="/images/<%= product.image %> " alt="product image" class="imagenProducto">
+					<p class="productoDescripcion"><%= product.description %></p>
+				</div>
+				<div class="productoDetalles">
+					<h2 class="nombreProducto"><%= product.name %> </h2>
+					<% if (product.discount != 0) { %>
+						<div class="productosPrecioDescuento">
+							<p class="productosPrecioDescuentoTachado"><span>$<%= product.price %></span></p>
+							<p class="descuento"><%= product.discount %>%OFF</p>
+						</div>
+						<p class="productoPrecioFinal">$<%= (product.price * (100 - product.discount) / 100)%></p>
+					<% }else { %>
+						<p class="productoPrecioFinal">$<%= (product.price * (100 - product.discount) / 100)%></p>
+						<% } %> 
+					<div class="tarjetaInformacion">
+						<i class="fas fa-credit-card"></i>
+						<p class="informacion">Pagá en 12 cuotas sin interes</p>
+					</div>
+					<div class="tarjetaInformacion">
+						<i class="fas fa-store"></i>
+						<p class="informacion">Retiro gratis en locales del vendedor</p>
+					</div>
+					<a href="/products/carrito" class="comprar">
+					<div class="botonComprar">
+						COMPRAR AHORA
+					</div>
+				</a>
+					<% if (session.userLogged && session.userLogged.rol == 1) { %>
+						<div class="botonEditarEliminar">
+							<a href="/admin/editProduct/<%= product.id %> " class="botonEditar">EDITAR PRODUCTO</a>
+							<form action="/admin/delete/<%= product.id %>/?_method=DELETE" method="POST" class="formularioEliminar">
+								<button type="submit" class="eliminar">ELIMINAR</button>
+							</form>
+						</div>
+					  <% } %>
+				</div>					
+			</article>
+		</div>
+		<div class="tituloProductosRelacionados">
+			<h2 class="nombreTitulo">Ofertas</h2>
+		</div>
+		<section class="contenedorArticuloRelacionado">
+			<% inSale.forEach(products => { %>
+				<div class="contenedorArticulosRelacionados">
+				<article class="articuloRelacionado">
+					<div class="imagenProductoRelacionado">
+						<a href="/products/detail/<%= products.id %>"><img class="imagenRelacionada" src="/images/<%= products.image %> " alt="atr"></a>
+					</div>	
+					<div class="verMasProductoRelacionado">
+						<h3 class="nombreProductoRelacionado"><%= products.name %></h3>
+						<a href="/products/detail/<%= products.id %>"><button class="botonVerMas">Ver Mas</button></a>
+					</div>
+				</article>
+			</div>
+		<% }) %>
+	</section>
+	<div class="tituloProductosRelacionados">
+		<h2 class="nombreTitulo">Tambien te podria interesar</h2>
+	</div>
+	<section class="contenedorArticuloRelacionado">
+		<% visited.forEach(products => { %>
+			<div class="contenedorArticulosRelacionados">
+				<article class="articuloRelacionado">
+					<div class="imagenProductoRelacionado">
+						<a href="/products/detail/<%= products.id %>"><img class="imagenRelacionada" src="/images/<%= products.image %> " alt="atr"></a>
+					</div>	
+					<div class="verMasProductoRelacionado">
+						<h3 class="nombreProductoRelacionado"><%= products.name %></h3>
+						<a href="/products/detail/<%= products.id %>"><button class="botonVerMas">Ver Mas</button></a>
+					</div>
+				</article>
+			</div>
+		<% }) %>
+	</section>
+					
+		<!-- /product detail -->
+		<%- include("../partials/footer") %> 
+		<script src="/js/efecto.js"></script>
+	</main>
+	<!-- product detail -->
+</body>
+</html>
