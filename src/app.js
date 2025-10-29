@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+require("dotenv").config();
+
 const port= process.env.PORT || 3001; 
 const path = require('path');
 const methodOverride =  require('method-override');
@@ -44,7 +46,6 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use("/api", apiRouter);
-require("dotenv").config();
 
 /* app.use('/api/users', apiUsersRouter);
 app.use('/api/products', apiProductsRouter); */
