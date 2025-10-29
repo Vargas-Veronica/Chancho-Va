@@ -44,11 +44,31 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use("/api", apiRouter);
+require("dotenv").config();
 
+const http = require("http");
+const { neon } = require("@neondatabase/serverless");
+
+const sql = neon(process.env.DATABASE_URL);
+const requestHandler = async (req, res) => {
+  const result = await sql`SELECT version()`;
+  const { version } = result[0];
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(version);
+};
+const server = http.createServer(requestHandler);
 /* app.use('/api/users', apiUsersRouter);
 app.use('/api/products', apiProductsRouter); */
 
-
+app.get("/test-db", async (req, res) => {
+  try {
+    const result = await sql`SELECT version()`;
+    res.json(result[0]);
+  } catch (err) {
+    console.error("Error conectando a Neon:", err);
+    res.status(500).send("Error de conexión a BD");
+  }
+});
 
 /*app.listen(port, () => {
     console.log(`servidor levantado en http://localhost:${port}`);
@@ -57,3 +77,6 @@ app.use('/api/products', apiProductsRouter); */
 app.listen(port, '0.0.0.0', () => {
     console.log(`Servidor levantado en puerto ${port}`);
 });
+
+
+
