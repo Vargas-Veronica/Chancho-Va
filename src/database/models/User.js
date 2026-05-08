@@ -26,7 +26,6 @@ module.exports = (sequelize, dataTypes) => {
         role_id: {
             type: dataTypes.INTEGER(11),
             allowNull: false,
-            defaultValue: 0,
         },
         avatar: {
             type: dataTypes.STRING(100),
@@ -43,7 +42,7 @@ module.exports = (sequelize, dataTypes) => {
     const USER = sequelize.define(alias, cols, config);
 
     USER.associate = (models) => {
-        USER.hasMany(models.Role, {
+        USER.bel(models.Role, {
             foreignKey: "user_id",
             as: "roles",
         });

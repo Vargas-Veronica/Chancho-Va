@@ -13,16 +13,13 @@ module.exports = {
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "production": {
-  "use_env_variable": "DATABASE_URL",
-  "dialect": "postgres",
-  "protocol": "postgres",
-  "dialectOptions": {
-    "ssl": {
-      "require": true,
-      "rejectUnauthorized": false
-    }
-  }
+    production: {
+    username: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    host: process.env.MYSQLHOST,
+    port: process.env.MYSQLPORT,
+    dialect: "mysql"
 }
   }
   
