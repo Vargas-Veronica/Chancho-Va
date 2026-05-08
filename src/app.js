@@ -67,7 +67,7 @@ app.get("/test-db", async (req, res) => {
     }
 );*/
 
-sequelize.sync({ alter: true })
+sequelize.sync()
   .then(() => {
     console.log("Tablas sincronizadas");
 
