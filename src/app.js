@@ -67,17 +67,12 @@ app.get("/test-db", async (req, res) => {
     }
 );*/
 
-sequelize.sync()
-  .then(() => {
-    console.log("Tablas sincronizadas");
 
-    app.listen(port, '0.0.0.0', () => {
-      console.log(`Servidor levantado en puerto ${port}`);
-    });
-  })
-  .catch((error) => {
-    console.error("Error sincronizando DB:", error);
-  });
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor levantado en puerto ${port}`);
+});
+  
+
 
 
 
