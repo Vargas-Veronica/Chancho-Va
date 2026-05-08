@@ -66,9 +66,12 @@ app.get("/test-db", async (req, res) => {
     console.log(`servidor levantado en http://localhost:${port}`);
     }
 );*/
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Servidor levantado en puerto ${port}`);
+sequelize.sync({ alter: true }).then(() => {
+    app.listen(port, '0.0.0.0', () => {
+        console.log(`Servidor levantado en puerto ${port}`);
+    });
 });
+
 
 
 
